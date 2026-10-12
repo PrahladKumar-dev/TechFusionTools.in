@@ -1,0 +1,561 @@
+
+/* =========================================
+   TECHFUSION TOOLS — PREMIUM ORANGE HEADER
+========================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  isolation: isolate;
+  background: linear-gradient(
+    105deg,
+    #ffffff 0%,
+    #fffdfb 48%,
+    #fff5ec 100%
+  );
+  border-bottom: 1px solid rgba(255, 103, 15, 0.18);
+  box-shadow: 0 3px 14px rgba(25, 38, 55, 0.055);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 102, 14, 0.11) 1px,
+    transparent 1.3px
+  );
+  background-size: 20px 20px;
+  opacity: 0.32;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    transparent 20%,
+    #000 60%,
+    #000
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    transparent 20%,
+    #000 60%,
+    #000
+  );
+}
+
+/* =========================================
+   HEADER LAYOUT
+========================================= */
+
+.nav-wrap {
+  width: min(1460px, calc(100% - 44px));
+  min-height: 72px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* =========================================
+   LOGO CONTAINER
+========================================= */
+
+.brand-animated {
+  position: relative;
+  display: block;
+  flex: 0 0 198px;
+  width: 198px;
+  height: 61px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-shrink: 0;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+}
+
+.brand-animated span {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.brand-animated img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================
+   SHIELD / EMBLEM
+========================================= */
+
+.brand-emblem {
+  z-index: 2;
+  left: 0;
+  top: 2px;
+  width: 65px;
+  height: 57px;
+  opacity: 0;
+  transform: translateX(-65px);
+  animation: emblemEnter 0.7s ease 0.1s forwards;
+}
+
+/* =========================================
+   TECHFUSION WORDMARK
+   Moved closer to emblem and slightly lower
+========================================= */
+
+.brand-wordmark {
+  z-index: 3;
+  left: 37px;
+  top: 15px;
+  width: 159px;
+  height: 30px;
+  clip-path: inset(0 100% 0 0);
+  animation: wordmarkReveal 0.85s ease 0.35s forwards;
+}
+
+/* =========================================
+   TOOLS WORDMARK
+   Smaller and raised close to TechFusion
+========================================= */
+
+.brand-tools {
+  z-index: 4;
+  left: 78px;
+  top: 33px;
+  width: 91px;
+  height: 18px;
+  opacity: 0;
+  transform: translateY(4px);
+  animation: toolsRise 0.5s ease 0.95s forwards;
+}
+
+/* =========================================
+   LOGO ANIMATIONS
+========================================= */
+
+@keyframes emblemEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-65px);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wordmarkReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes toolsRise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   ACCESSIBLE HIDDEN TEXT
+========================================= */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 1.45vw, 21px);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.desktop-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  color: #24344d;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+/* Orange hover underline */
+
+.desktop-nav a:not(.admin-link)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff922e, #ff5100);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.desktop-nav a:not(.admin-link):hover {
+  color: #f45d00;
+}
+
+.desktop-nav a:not(.admin-link):hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================
+   ADMIN BUTTON
+========================================= */
+
+.desktop-nav .admin-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-left: 2px;
+  padding: 11px 16px;
+  border: 1px solid rgba(255, 120, 35, 0.55);
+  border-radius: 10px;
+  color: #ffffff;
+  background: linear-gradient(
+    120deg,
+    #ff8b24,
+    #ff650d 65%,
+    #f64a00
+  );
+  box-shadow: 0 4px 11px rgba(255, 96, 10, 0.15);
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.desktop-nav .admin-link::after {
+  display: none;
+}
+
+.desktop-nav .admin-link:hover {
+  color: #ffffff;
+  background: linear-gradient(120deg, #ff9c3e, #ff5b05);
+  box-shadow: 0 6px 15px rgba(255, 96, 10, 0.24);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.mobile-menu {
+  display: none;
+  flex: 0 0 auto;
+  border: 1px solid #ffd0ad;
+  background: #ffffff;
+  border-radius: 9px;
+  padding: 7px 10px;
+  font-size: 20px;
+  line-height: 1;
+  color: #f45d00;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.mobile-menu:hover {
+  color: #ffffff;
+  border-color: #ff650e;
+  background: #ff650e;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1150px) {
+  .nav-wrap {
+    width: calc(100% - 30px);
+    min-height: 68px;
+    gap: 10px;
+  }
+
+  .brand-animated {
+    flex-basis: 184px;
+    width: 184px;
+    height: 58px;
+  }
+
+  .brand-emblem {
+    width: 61px;
+    height: 54px;
+  }
+
+  .brand-wordmark {
+    left: 34px;
+    top: 14px;
+    width: 148px;
+    height: 28px;
+  }
+
+  .brand-tools {
+    left: 72px;
+    top: 31px;
+    width: 85px;
+    height: 17px;
+  }
+
+  .desktop-nav {
+    gap: 11px;
+  }
+
+  .desktop-nav a {
+    font-size: 12.5px;
+  }
+
+  .desktop-nav .admin-link {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   TABLET AND MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+  .nav-wrap {
+    width: calc(100% - 26px);
+    min-height: 66px;
+    gap: 10px;
+  }
+
+  .brand-animated {
+    flex-basis: 174px;
+    width: 174px;
+    height: 56px;
+  }
+
+  .brand-emblem {
+    width: 59px;
+    height: 52px;
+  }
+
+  .brand-wordmark {
+    left: 31px;
+    top: 14px;
+    width: 140px;
+    height: 27px;
+  }
+
+  .brand-tools {
+    left: 69px;
+    top: 31px;
+    width: 81px;
+    height: 16px;
+  }
+
+  .mobile-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .desktop-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 10px 20px 18px;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid #ffe0cc;
+    box-shadow: 0 14px 28px rgba(24, 40, 58, 0.1);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .desktop-nav.nav-open {
+    display: flex;
+  }
+
+  .desktop-nav a {
+    justify-content: flex-start;
+    padding: 11px 8px;
+    border-bottom: 1px solid #f7e8dd;
+    font-size: 14px;
+  }
+
+  .desktop-nav a:not(.admin-link)::after {
+    display: none;
+  }
+
+  .desktop-nav .admin-link {
+    justify-content: center;
+    margin: 8px 0 0;
+    padding: 11px 14px;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 420px) {
+  .nav-wrap {
+    width: calc(100% - 20px);
+    min-height: 62px;
+    gap: 6px;
+  }
+
+  .brand-animated {
+    flex-basis: 164px;
+    width: 164px;
+    height: 53px;
+  }
+
+  .brand-emblem {
+    width: 55px;
+    height: 49px;
+  }
+
+  .brand-wordmark {
+    left: 29px;
+    top: 13px;
+    width: 132px;
+    height: 25px;
+  }
+
+  .brand-tools {
+    left: 64px;
+    top: 29px;
+    width: 77px;
+    height: 16px;
+  }
+
+  .mobile-menu {
+    padding: 7px 9px;
+    font-size: 19px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-emblem,
+  .brand-wordmark,
+  .brand-tools {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+
+  .desktop-nav a,
+  .desktop-nav .admin-link,
+  .mobile-menu {
+    transition: none;
+  }
+}
+/* TechFusion — thoda aur neeche */
+.brand-wordmark {
+  left: 37px;
+  top: 17px; /* pehle 15px */
+  width: 159px;
+  height: 30px;
+}
+
+/* TOOLS — thoda left */
+.brand-tools {
+  left: 70px; /* pehle 78px */
+  top: 33px;
+  width: 91px;
+  height: 18px;
+}
+@media (max-width: 1150px) {
+  .brand-wordmark {
+    top: 16px;
+  }
+
+  .brand-tools {
+    left: 65px;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand-wordmark {
+    top: 16px;
+  }
+
+  .brand-tools {
+    left: 62px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-wordmark {
+    top: 14px;
+  }
+
+  .brand-tools {
+    left: 58px;
+  }
+}
+.brand-tools {
+  top: 36px; /* pehle 33px tha */
+}

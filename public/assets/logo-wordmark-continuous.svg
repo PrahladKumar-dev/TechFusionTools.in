@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="360" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
+  <title id="title">TechFusion</title>
+  <desc id="desc">TechFusion written continuously, with Tech in navy blue and Fusion in orange.</desc>
+  <text x="25" y="265"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="250"
+        font-style="italic"
+        font-weight="900"
+        letter-spacing="-7">
+    <tspan fill="#123879">Tech</tspan><tspan fill="#ff4d0a">Fusion</tspan>
+  </text>
+</svg>
